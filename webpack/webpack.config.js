@@ -7,6 +7,9 @@ const publicFolder = (...paths) => rootFolder('./public', ...paths);
 
 const config = {
   entry: srcFolder('index.tsx'),
+  resolve: {
+    extensions: ['.js', '.ts', '.tsx']
+  },
   output: {
     path: rootFolder('build'),
     filename: 'bundle.js'
