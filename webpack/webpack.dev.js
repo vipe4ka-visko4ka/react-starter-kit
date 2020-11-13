@@ -5,6 +5,7 @@ const baseConfig = require('./webpack.config');
 const config = {
   mode: 'development',
   devServer: {
+    historyApiFallback: true,
     open: true,
     port: 3000
   }
