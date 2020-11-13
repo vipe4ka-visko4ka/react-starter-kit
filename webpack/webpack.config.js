@@ -6,7 +6,7 @@ const srcFolder = (...paths) => rootFolder('./src', ...paths);
 const publicFolder = (...paths) => rootFolder('./public', ...paths);
 
 const config = {
-  entry: srcFolder('index.jsx'),
+  entry: srcFolder('index.tsx'),
   output: {
     path: rootFolder('build'),
     filename: 'bundle.js'
@@ -15,7 +15,16 @@ const config = {
     new HtmlWebpackPlugin({
       template: publicFolder('index.html')
     })
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.tsx$/,
+        exclude: /node_modules/,
+        use: 'ts-loader'
+      }
+    ]
+  }
 };
 
 module.exports = config;
